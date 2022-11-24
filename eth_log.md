@@ -1,5 +1,5 @@
 # Pre-requisites:
-+ Set Ethernet MCDMA TX interrupt affinity to core-1
++ Set Ethernet AXI DMA TX interrupt affinity to core-1
 ```
 root@10g-mcdma-no1588-build:~# echo 2 > /proc/irq/xx/smp_affinity
 ```
