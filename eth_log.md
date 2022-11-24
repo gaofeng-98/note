@@ -472,6 +472,12 @@ Average:       3    7.62    0.00   83.42    0.00    0.00    5.61    0.00    0.00
 ## TCP_RX_MTU9000
 ```
 #commands
+#---------------used on board--------------------
+#echo f > /sys/class/net/eth1/queues/rx-0/rps_cpus
+#echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
+#echo 2048 > /sys/class/net/eth1/queues/rx-0/rps_flow_cnt
+#echo 2048 >  /sys/class/net/eth1/queues/rx-1/rps_flow_cnt
+#---------------used on PC-----------------------
 echo "SERVER_IP is 192.168.1.10"
 #sudo ifconfig enp179s0f0 down
 #sudo ifconfig enp179s0f0 mtu 9000
@@ -540,6 +546,12 @@ Average:       3    2.89    0.00   40.15    0.00    0.00    0.00    0.00    0.00
 ## UDP_RX_MTU9000
 ```
 #commands
+#---------------used on board--------------------
+#echo f > /sys/class/net/eth1/queues/rx-0/rps_cpus
+#echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
+#echo 2048 > /sys/class/net/eth1/queues/rx-0/rps_flow_cnt
+#echo 2048 >  /sys/class/net/eth1/queues/rx-1/rps_flow_cnt
+#---------------used on PC-----------------------
 echo "SERVER_IP is 192.168.1.10"
 #sudo ifconfig enp179s0f0 down
 #sudo ifconfig enp179s0f0 mtu 9000
@@ -620,6 +632,12 @@ Average:       3    2.34    0.00   23.09    0.00    0.00    0.00    0.00    0.00
 ## UDP_RX_MTU1500
 ```
 #commands
+#---------------used on board--------------------
+#echo f > /sys/class/net/eth1/queues/rx-0/rps_cpus
+#echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
+#echo 2048 > /sys/class/net/eth1/queues/rx-0/rps_flow_cnt
+#echo 2048 >  /sys/class/net/eth1/queues/rx-1/rps_flow_cnt
+#---------------used on PC-----------------------
 #echo "SERVER_IP is 192.168.1.10"
 #sudo ifconfig enp179s0f0 down
 #sudo ifconfig enp179s0f0 mtu 1500
