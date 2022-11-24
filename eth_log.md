@@ -1,5 +1,21 @@
-+ echo 2 > /proc/irq/62/smp_affinity
-+ echo 3 > /proc/irq/63/smp_affinity
+# Pre-requisites:
++ Set Ethernet MCDMA TX interrupt affinity to core-1
+```
+root@10g-mcdma-no1588-build:~# echo 2 > /proc/irq/xx/smp_affinity
+```
++ Run iperf servers on ZynqMP (core2 and core3)
+```
+root@10g-mcdma-no1588-build:~# iperf3 -s -p 5101 -A 2 &
+root@10g-mcdma-no1588-build:~# iperf3 -s -p 5102 -A 3 &
+```
++ CPU Utilization reporting
+```
+root@10g-mcdma-no1588-build:~# ./mpstat -P ALL 1 50
+```
++ Run iperf servers on the remote host
+```
+server:~# iperf3 -s -p 5101 & ; iperf3 -s -p 5102 & ; iperf3 -s -p 5103 & ; iperf3 -s -p 5104 &
+```
 
 # TCP_TX_MTU1500
 ```
@@ -74,7 +90,7 @@ Average:       3    0.28    0.00   43.56    0.00    0.00    8.96    0.00    0.00
 
 
 
-# UDP_TX_MTU_1500
+# UDP_TX_MTU1500
 ```
 #commands in a_test_eth.sh
 echo "SERVER_IP is 192.168.1.2"
@@ -234,7 +250,12 @@ mpstat -P ALL 1 40
 <summary>terminal log</summary>
 
 ```
-  
+./a_test_eth.sh 
+SERVER_IP is 192.168.1.2
+5201:  Connecting to host 192.168.1.2, port 5201
+5201:  [  5] local 192.168.1.10 port 45218 connected to 192.168.1.2 port 5201
+5202:  Connecting to host 192.168.1.2, port 5202
+5202:  [  5] local 192.168.1.10 port 48838 connected to 192.168.1.2 port 5202  
 ```
 </details>
 
@@ -302,7 +323,7 @@ Average:       3    0.82    0.00   65.90    0.00    0.00    0.00    0.00    0.00
 
 
 
-# UDP_TX_MTU_9000 
+# UDP_TX_MTU9000 
 ```
 #commands
 echo "SERVER_IP is 192.168.1.2"
@@ -436,7 +457,7 @@ Average:       3    7.62    0.00   83.42    0.00    0.00    5.61    0.00    0.00
 
 
 
-# TCP_RX_MTU_9000
+# TCP_RX_MTU9000
 ```
 #commands
 echo "SERVER_IP is 192.168.1.10"
@@ -504,7 +525,7 @@ Average:       3    2.89    0.00   40.15    0.00    0.00    0.00    0.00    0.00
 
 
 
-# UDP_RX_MTU_9000
+# UDP_RX_MTU9000
 ```
 #commands
 echo "SERVER_IP is 192.168.1.10"
@@ -584,7 +605,7 @@ Average:       3    2.34    0.00   23.09    0.00    0.00    0.00    0.00    0.00
 
 
 
-# UDP_RX_MTU_1500
+# UDP_RX_MTU1500
 ```
 #commands
 #echo "SERVER_IP is 192.168.1.10"
@@ -653,7 +674,7 @@ Average:       3    5.30    0.00   31.13    0.00    0.00    0.00    0.00    0.00
 
 
 
-# TCP_RX_MTU_1500
+# TCP_RX_MTU1500
 ```
 #commands
 #---------------used on board--------------------
@@ -675,7 +696,11 @@ iperf3 -c 192.168.1.10 -p 5202 -i 60 -t 60 -b 4000M -Z -T 5202 &
 <summary>terminal log</summary>
 
 ```
-  
+./a_test_eth.sh 
+5201:  Connecting to host 192.168.1.10, port 5201
+5201:  [  4] local 192.168.1.2 port 33907 connected to 192.168.1.10 port 5201
+5202:  Connecting to host 192.168.1.10, port 5202
+5202:  [  4] local 192.168.1.2 port 35162 connected to 192.168.1.10 port 5202   
 ```
 </details>
 
