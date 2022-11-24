@@ -681,7 +681,7 @@ Average:       3    5.30    0.00   31.13    0.00    0.00    0.00    0.00    0.00
 #echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
 #echo 2048 > /sys/class/net/eth0/queues/rx-0/rps_flow_cnt
 #echo 2048 >  /sys/class/net/eth0/queues/rx-1/rps_flow_cnt
-#---------------used on server-------------------
+#---------------used on PC-----------------------
 echo "SERVER_IP is 192.168.1.10"
 #sudo ifconfig enp179s0f0 down
 #sudo ifconfig enp179s0f0 mtu 1500
