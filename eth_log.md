@@ -677,7 +677,6 @@ Average:       3    5.30    0.00   31.13    0.00    0.00    0.00    0.00    0.00
 <summary>performance</summary>
 
 ```
-5202:  [  4] local 192.168.1.2 port 36237 connected to 192.168.1.10 port 5202
 5201:  [ ID] Interval           Transfer     Bandwidth       Total Datagrams
 5201:  [  4]   0.00-60.00  sec  27.9 GBytes  4.00 Gbits/sec  20367388  
 5201:  - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -686,6 +685,7 @@ Average:       3    5.30    0.00   31.13    0.00    0.00    0.00    0.00    0.00
 5201:  [  4] Sent 20367335 datagrams
 5201:  
 5201:  iperf Done.
+ 
 5202:  [ ID] Interval           Transfer     Bandwidth       Total Datagrams
 5202:  [  4]   0.00-60.00  sec  27.9 GBytes  4.00 Gbits/sec  20363788  
 5202:  - - - - - - - - - - - - - - - - - - - - - - - - -
