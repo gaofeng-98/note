@@ -244,7 +244,7 @@ Average:       3   13.12    0.00   86.78    0.00    0.00    0.10    0.00    0.00
 
 
 
-## TCP_TX_9000
+## TCP_TX_MTU9000
 ```
 #commands in a_test_eth.sh
 echo "SERVER_IP is 192.168.1.2"
