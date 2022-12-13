@@ -56,7 +56,7 @@
 
 
 # Pre-requisites:
-+ Set Ethernet AXI DMA TX interrupt affinity to core-1
++ Set Ethernet AXI MCDMA TX interrupt affinity to core-1
 ```
 echo 2 > /proc/irq/xx/smp_affinity
 ```
@@ -66,8 +66,10 @@ iperf3 -s -p 5101 -A 1 &
 iperf3 -s -p 5102 -A 2 &
 iperf3 -s -p 5103 -A 3 &
 ```
-+ Enable RFS & Set r/w buffer size
++ Enable RFS(receive flow steering) & Set R/W buffer size
 ```
+//RFS is disabled by default. To enable RFS, we must edit rps_sock_flow_entries and rps_flow_cnt
+//For details refer : https://www.kernel.org/doc/Documentation/networking/scaling.txt
 echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
 echo 2048 > /sys/class/net/eth1/queues/rx-0/rps_flow_cnt
 echo 2048 > /sys/class/net/eth1/queues/rx-1/rps_flow_cnt
@@ -626,6 +628,8 @@ sleep 1s
 iperf3 -u -c 192.168.1.10 -p 5203 -i 60 -t 60 -b 3000M -Z -T 5203 -l 8972 &
 ```
 
++ NOTE: Since 4.19 kernel we need to explictly set buffer length to avoid fragmentation.
+
 <details>
 <summary>terminal log</summary>
 
@@ -715,6 +719,7 @@ iperf3 -u -c 192.168.1.10 -p 5202 -i 60 -t 60 -b 800M -Z -T 5202 -l 1472 &
 sleep 1s
 iperf3 -u -c 192.168.1.10 -p 5203 -i 60 -t 60 -b 800M -Z -T 5203 -l 1472 &
 ```
++ NOTE: Since 4.19 kernel we need to explictly set buffer length to avoid fragmentation.
 
 <details>
 <summary>terminal log</summary>
